@@ -46,4 +46,36 @@
 .result {
     grid-column: 1/4;
     height: 10vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.result button {
+    margin-top: 5rem;
+    aspect-ratio: 4/1;
+    height: 2.5rem;
+    border: none;
+    background-color: aqua;
+    box-shadow: 0 5px 5px 0 black;
+}
+
+#result-text{
+    margin-top: 2rem;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+.player1, .player2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input{
+    height: 1.5rem;
+}
+label{
+    font-size: 1.5rem;
+    display: block;
 }
