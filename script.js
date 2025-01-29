@@ -1,3 +1,5 @@
+const startBtn = document.getElementById("start-btn");
+startBtn.addEventListener("click", newGame);
 const board = {
   a1: "",
   a2: "",
@@ -32,8 +34,8 @@ function MakeMove(e) {
   } else {
     board[e.target.id] = symbol;
     e.target.innerText = symbol;
-    game.player1move = !game.player1move;
     checkGame();
+    game.player1move = !game.player1move;
   }
 }
 
@@ -49,17 +51,33 @@ function checkGame() {
     (board.a3 != "" && board.a3 === board.b3 && board.b3 === board.c3)
   ) {
     game.isGameOver = true;
-    console.log("winner winner chicken dinner");
+    document.getElementById("result-text").innerText = `"Game Over! ${
+      game.player1move ? game.player1.name : game.player2.name
+    } won!"`;
   }
 }
 
 function Game(player1, player2, isGameOver = false, player1move = true) {
   CreateBoard();
   const fields = document.querySelectorAll(".field");
-  for (field of fields) {
+  for (let field of fields) {
     field.addEventListener("click", MakeMove);
   }
+  const name1 = document.getElementById("player1-name").value || "Player 1";
+  const name2 = document.getElementById("player2-name").value || "Player 2";
+
+  player1 = Player(name1, "X");
+  player2 = Player(name2, "O");
+
   return { player1, player2, isGameOver, player1move };
 }
 
-const game = Game();
+function newGame() {
+  document.getElementById("result-text").innerText = "";
+  document.getElementById("game").innerHTML = "";
+  for ([key, value] of Object.entries(board)) {
+    board[key] = "";
+  }
+  game = Game();
+}
+let game = Game();
