@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;;
+}
+
+.main {
+    margin: auto;
+}
+
+.game-container{
+    width: 30vw;
+    height: 30vw;
+    margin: auto;
+    margin-top: 25vh;
+}
+
+#game {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.field{
+    height: 10vw;
+    width: 10vw;
+    background-color: aliceblue;
+    align-items: center;
+    justify-items: center;
+    border: 2px inset grey;
+    font-size: 9vh;
+    display: flex;
+    justify-content: center;
+}
+
+.even {
+    background-color: aquamarine;
+}
+
+.odd {
+    background-color: blue;
+}
